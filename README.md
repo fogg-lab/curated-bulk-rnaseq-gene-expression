@@ -1,5 +1,7 @@
 # curated-bulk-rnaseq-human-gene-expression
 
+Created for the [GENE Platform](https://github.com/fogg-lab/gene-platform).
+
 This repo hosts the data retrieval script to download RNAseq raw counts + coldata from 61 different projects on GDC and ~14,000 GEO series. The data is filtered to include only protein-coding and lncRNA genes, and additionally exclude genes with zero or near-zero counts (background/noise level).
 
 This dataset takes up only ~21 GB of disk space, despite containing over half a million samples.
