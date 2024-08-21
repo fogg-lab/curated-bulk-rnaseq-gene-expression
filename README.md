@@ -68,6 +68,7 @@ Contains sample-specific metadata for each dataset.
 
 Contains filtered raw counts for gene expression.
 
+- **File naming**: `DATASET.npy.gz`
 - **Format**: Gzip-compressed NPY (.npy.gz)
 - **Content**: 2D array of signed 32-bit integers
   - Rows: Samples (in the same order as in coldata)
