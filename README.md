@@ -1,10 +1,14 @@
-# curated-bulk-rnaseq-human-gene-expression
+# curated-bulk-rnaseq-gene-expression
 
 Created for the [GENE Platform](https://github.com/fogg-lab/gene-platform).
 
-This repo hosts the data retrieval script to download RNAseq raw counts + coldata from 61 different projects on GDC and ~14,000 GEO series. The data is filtered to include only protein-coding and lncRNA genes, and additionally exclude genes with zero or near-zero counts (background/noise level).
+This repo hosts the data retrieval script to download RNAseq raw counts + coldata from [61 GDC projects](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GDC/index.json), [13,105 GEO human series](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GEO-human/index.json), and [13,079 GEO mouse series](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GEO-mouse/index.json).
 
-This dataset takes up only ~21 GB of disk space, despite containing over half a million samples.
+The data is filtered to include only protein-coding and lncRNA genes, and additionally exclude genes with zero count for all samples within a project/series.
+
+**Total size**: 31.55 GB (29.38 GiB)
+
+You need about 32 GB disk space to download the whole collection.
 
 ## Data Sources
 
@@ -39,14 +43,32 @@ This dataset takes up only ~21 GB of disk space, despite containing over half a 
 ```
 .
 ├── GEO/
+|   ├── all_genes.csv.gz
+|   ├── index.json
 │   ├── coldata/
 │   ├── expression/
 │   └── genes/
-└── GDC/
-    ├── coldata/
-    ├── expression/
-    └── genes/
-```
+├── GDC-human/
+|   ├── all_genes.csv.gz
+|   ├── index.json
+│   ├── coldata/
+│   ├── expression/
+│   └── genes/
+├── GDC-mouse/
+|   ├── all_genes.csv.gz
+|   ├── index.json
+│   ├── coldata/
+│   ├── expression/
+│   └── genes/
+└``
+
+## Index
+
+Each corpus ([GDC](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GDC/index.json), [GEO-mouse](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GEO-mouse/index.json), [GEO-human](https://docgl1or94tw4.cloudfront.net/curated-bulk-rnaseq-gene-expression/GEO-human/index.json)) contains an index.json file containing the ID, description, and number of samples for each project or series.
+
+## Gene info
+
+Each corpus also contains a file all_genes.csv.gz containing Ensembl gene IDs, HUGO symbols, Entrez IDs, and biotypes (either protein coding or lncRNA) for all genes in the dataset for that corpus.
 
 ## Subdirectories
 
@@ -60,8 +82,8 @@ Contains sample-specific metadata for each dataset.
 - **Format**: Gzip-compressed CSV
 - **Content**: All samples and traits for a dataset
 - **Examples**: 
-  - `gdc/coldata/TCGA-CESC.csv.gz`
-  - `geo/coldata/GSE26284.csv.gz`
+  - `GDC/coldata/TCGA-CESC.csv.gz`
+  - `GEO-human/coldata/GSE26284.csv.gz`
 - **Note**: The first column is always "sample_id"
 
 ### 2. expression/
@@ -84,6 +106,7 @@ Contains information about the genes retained after filtering low counts.
 - **Columns**:
   - ensembl_id
   - symbol
+  - entrezgene
   - biotype (either protein_coding or lnc_rna)
 - **Examples**:
   - `gdc/genes/TCGA-CESC.csv.gz`
@@ -96,10 +119,6 @@ Contains information about the genes retained after filtering low counts.
 3. The order of samples in the expression data matches the order in the coldata files.
 4. The order of genes in the expression data matches the order in the genes files.
 5. Both `coldata/` and `genes/` directories use the same file naming convention: `DATASET.csv.gz`.
-
-## Index
-
-See GDC_index.json and GEO_index.json for a list of dataset IDs, corresponding titles, and number of samples.
 
 ## References
 
