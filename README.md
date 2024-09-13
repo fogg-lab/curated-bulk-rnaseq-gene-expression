@@ -55,12 +55,12 @@ You need about 32 GB disk space to download the whole collection.
 │   ├── expression/
 │   └── genes/
 ├── GDC-mouse/
-|   ├── all_genes.csv.gz
-|   ├── index.json
-│   ├── coldata/
-│   ├── expression/
-│   └── genes/
-└``
+    ├── all_genes.csv.gz
+    ├── index.json
+    ├── coldata/
+    ├── expression/
+    └── genes/
+```
 
 ## Index
 
