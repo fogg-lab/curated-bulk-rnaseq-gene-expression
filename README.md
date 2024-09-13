@@ -24,8 +24,8 @@ You need about 32 GB disk space to download the whole collection.
 
 1. Clone this repo and navigate to its directory.
     ```
-    git clone https://github.com/fogg-lab/curated-bulk-rnaseq-human-gene-expression.git
-    cd curated-bulk-rnaseq-human-gene-expression
+    git clone https://github.com/fogg-lab/curated-bulk-rnaseq-gene-expression.git
+    cd curated-bulk-rnaseq-gene-expression
     ```
 
 2. Run the download script.
