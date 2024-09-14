@@ -15,7 +15,7 @@ You need about 32 GB disk space to download the whole collection.
 ## Data Sources
 
 - **GDC**: We used the GDC Transfer tool to download raw counts and clinical data for the samples from GDC prior to preprocessing.
-- **GEO**: We pulled preprocessed GEO data from ARCHS<sup>4</sup> and further processed the sample-specific metadata to organize the information into distinct characteristics and phenotypes for each sample[1].
+- **GEO**: We pulled preprocessed GEO data from ARCHS<sup>4</sup> and further processed the sample-specific metadata to organize the information into distinct characteristics and phenotypes for each sample[1]. Specifically, we used the August 24 2024 data release of the ARCHS<sup>4</sup> gene expression collection (Version 2.5).
 
 ## Prerequisites
 - [Python 3.9 or higher](https://www.python.org/downloads/)
@@ -111,8 +111,8 @@ Contains information about the genes retained after filtering genes with zero co
   - entrezgene
   - biotype (either protein_coding or lnc_rna)
 - **Examples**:
-  - `gdc/genes/TCGA-CESC.csv.gz`
-  - `geo/genes/GSE26284.csv.gz`
+  - `GDC/genes/TCGA-CESC.csv.gz`
+  - `GEO-human/genes/GSE26284.csv.gz`
 
 ## Usage Notes
 
