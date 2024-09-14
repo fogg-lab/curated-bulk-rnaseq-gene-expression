@@ -6,7 +6,7 @@ This repo hosts the data retrieval script to download RNAseq raw counts + coldat
 
 The data is filtered to include only protein-coding and lncRNA genes, and additionally exclude genes with zero count for all samples within a project/series.
 
-Projects and series containing fewer than 10 samples are not included in this collection.
+GDC projects and GEO series containing fewer than 10 samples are not included in this collection. We also excluded datasets where no useful metadata (coldata) could be parsed for any samples. The idea is that every dataset in the collection contains counts + coldata ready for differential expression analysis.
 
 **Total size**: 31.55 GB (29.38 GiB)
 
