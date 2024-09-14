@@ -101,7 +101,7 @@ Contains filtered raw counts for gene expression.
 
 ### 3. genes/
 
-Contains information about the genes retained after filtering low counts.
+Contains information about the genes retained after filtering genes with zero count in all samples within a project/series.
 
 - **File naming**: `DATASET.csv.gz` (same as coldata)
 - **Format**: Gzip-compressed CSV
