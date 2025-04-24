@@ -33,8 +33,17 @@ def download_file(url, download_dir):
 
 def download_directory(download_dir):
     os.makedirs(download_dir, exist_ok=True)
+    existing_files = []
+    for root, _, files in os.walk(download_dir):
+        root = os.path.relpath(root, download_dir)
+        existing_files.extend(os.path.join(root, fp) for fp in files)
+
     with open(URLS_LIST_FILE, "r", encoding="utf-8") as f:
         urls = [line.strip() for line in f if line.startswith("https://")]
+
+    filepath_to_url = {"/".join(url.split("/")[3:]): url for url in urls}
+    keep_filepaths = filepath_to_url.keys() - set(existing_files)
+    urls = [filepath_to_url[fp] for fp in keep_filepaths]
 
     save_path = os.path.abspath(download_dir)
     print(f"Downloading {len(urls)} files to: {save_path}...")
